@@ -1,3 +1,4 @@
+require 'devise'
 require "subscribem/engine"
 
 module Subscribem
