@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102214755) do
+ActiveRecord::Schema.define(version: 20161202204406) do
+
+  create_table "subscribem_accounts", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "subdomain",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subdomain"], name: "index_subscribem_accounts_on_subdomain"
+  end
 
   create_table "subscribem_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
