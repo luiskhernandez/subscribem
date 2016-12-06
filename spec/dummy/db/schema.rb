@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202204406) do
+ActiveRecord::Schema.define(version: 20161204003436) do
 
   create_table "subscribem_accounts", force: :cascade do |t|
     t.string   "name",       null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20161202204406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subdomain"], name: "index_subscribem_accounts_on_subdomain"
+  end
+
+  create_table "subscribem_members", force: :cascade do |t|
+    t.integer  "account_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_subscribem_members_on_account_id"
+    t.index ["user_id"], name: "index_subscribem_members_on_user_id"
   end
 
   create_table "subscribem_users", force: :cascade do |t|
